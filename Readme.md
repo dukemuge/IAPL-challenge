@@ -13,7 +13,6 @@ Swagger 3 for Documentation of Api
 
 Tutorial
 
-Check out the complete tutorial on the CalliCoder blog -
 
 Spring Boot, PostgreSQL, JPA, Hibernate RESTful CRUD API Example
 Steps to Setup
@@ -35,4 +34,9 @@ mvn spring-boot:run
 Alternatively, you can package the application in the form of a JAR file and then run it like so -
 
 mvn clean package
-java -jar target/postgres-demo-0.0.1-SNAPSHOT.jar
+java -jar target/0.0.1-SNAPSHOT.jar
+
+
+4.Run the swagger ui and view  the documented API
+
+Run the application, and navigate to the swagger UI URL http://localhost:8080/openapi/swagger-ui.html
