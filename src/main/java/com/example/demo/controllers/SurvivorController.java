@@ -73,7 +73,7 @@ public class SurvivorController {
         return (survivorService.getPercentageOfinfectedSurvivors());
     }
 
-    @GetMapping("/noninfectedSurvivors/percentage")
+    @GetMapping("/non-infectedSurvivors/percentage")
     @Operation(summary = "percentage of Non-Infected", responses = {
             @ApiResponse(description = "calculate percentage of non-infected survivors", responseCode = "200", content = @Content(schema = @Schema(implementation = Survivor.class))),
 
@@ -83,7 +83,7 @@ public class SurvivorController {
     }
 
     @GetMapping("/infectedSurvivors")
-    @Operation(summary = "Get survivors", responses = {
+    @Operation(summary = "Get  List of  Infected survivors", responses = {
             @ApiResponse(description = "get List of Infected Survivor", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Survivor.class))),
             @ApiResponse(description = "empty list of infected survivors", responseCode = "204"),
             @ApiResponse(description = "error in List of non-infected", responseCode = "500", content = @Content),
@@ -102,7 +102,7 @@ public class SurvivorController {
     }
 
     @GetMapping("/nonInfected/survivors")
-    @Operation(summary = "Get survivors", responses = {
+    @Operation(summary = "Get  List of Non-Infected survivors", responses = {
             @ApiResponse(description = "get Non-Infected Survivor", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Survivor.class))),
             @ApiResponse(description = "empty list of non-infected survivors", responseCode = "204"),
             @ApiResponse(description = "error in List of non-infected", responseCode = "500", content = @Content),

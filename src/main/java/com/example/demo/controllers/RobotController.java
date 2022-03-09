@@ -16,7 +16,6 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import reactor.core.publisher.Flux;
 
 @RestController
 @RequestMapping("/api")
@@ -27,7 +26,7 @@ public class RobotController {
     RobotService robotService;
 
     @GetMapping(value = "/robots", produces = "application/json")
-    @Operation(summary = "Get robots", responses = {
+    @Operation(summary = "Get List of robots", responses = {
             @ApiResponse(description = "get fetch list of robots given url", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Robot.class))),
 
     })
@@ -35,15 +34,6 @@ public class RobotController {
     public List<Object> getAllRobots() {
         return robotService.getRobots();
 
-    }
-
-    // Second way to access web service(WebClient)
-
-    @GetMapping(value = "/nonBlockingrobots", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<Robot> getRobotsNonBlocking() {
-        String url = "https://robotstakeover20210903110417.azurewebsites.net/robotcpu";
-        Flux<Robot> robotFlux = WebClient.create().get().uri(url).retrieve().bodyToFlux(Robot.class);
-        return robotFlux;
     }
 
 }
