@@ -39,11 +39,11 @@ public class RobotController {
 
     // Second way to access web service(WebClient)
 
-    @GetMapping(value = "/tweets-non-blocking", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/nonBlockingrobots", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Robot> getRobotsNonBlocking() {
         String url = "https://robotstakeover20210903110417.azurewebsites.net/robotcpu";
-        Flux<Robot> tweetFlux = WebClient.create().get().uri(url).retrieve().bodyToFlux(Robot.class);
-        return tweetFlux;
+        Flux<Robot> robotFlux = WebClient.create().get().uri(url).retrieve().bodyToFlux(Robot.class);
+        return robotFlux;
     }
 
 }
