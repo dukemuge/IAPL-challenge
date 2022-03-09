@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "SURVIVOR")
 public class Survivor {
 
    @Id
